@@ -5,7 +5,15 @@ on:       # allow workflow run
 permissions: # assigns the workflow permissions to operate on the repository
   pull-requests: write   #gives the workflow permission to write to pull requests
 jobs:
-  build: # job name buil
-    name: Post welcome comment # task 01
+  build: 
+    name: Post welcome comment # Job1 name
     runs-on: ubuntu-latest  # run on ubunto os
+    steps: # add steps running on each job
+    # gh pr comment: This is the GitHub CLI command to add a comment to a pull request.
+    # $PR_URL: This is a variable that holds the URL of the pull request you want to comment on.
+    #--body "Welcome to the repository!" this is content of comment added to pull request
+      - run: gh pr comment $PR_URL --body "Welcome to the repository!"   # step 1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # environment variable to the token provided by GitHub
+          PR_URL: ${{ github.event.pull_request.html_url }} # URL of the pull request that triggered the workflow
   
