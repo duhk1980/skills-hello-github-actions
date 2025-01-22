@@ -1,6 +1,6 @@
-name: Post welcome comment
-on:
-  pull_request:
+name: Post welcome comment  #Workflow name, this name will appear in Actions tab
+on:       # allow workflow run
+  pull_request: # Workflow will run when pull request opened
     types: [opened]
-permissions:
-  pull-requests: write
+permissions: # assigns the workflow permissions to operate on the repository
+  pull-requests: write   #gives the workflow permission to write to pull requests
