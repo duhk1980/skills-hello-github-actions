@@ -4,3 +4,8 @@ on:       # allow workflow run
     types: [opened]
 permissions: # assigns the workflow permissions to operate on the repository
   pull-requests: write   #gives the workflow permission to write to pull requests
+jobs:
+  build: # job name buil
+    name: Post welcome comment # task 01
+    runs-on: ubuntu-latest  # run on ubunto os
+  
